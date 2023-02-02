@@ -1,5 +1,4 @@
 
-const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
 const _ = require("lodash");
@@ -7,16 +6,13 @@ mongoose.set('strictQuery', false);
 
 const bodyParser = require("body-parser");
 
-dotenv.config({path:"./config.env"});
-
-const DB = process.env.DATABASE;
 const app = express();
 
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect(DB);
+mongoose.connect("mongodb+srv://admin-rahul:Rahul1996@cluster0.mzgvmvr.mongodb.net/todoDB");
 
 const itemsSchema = {
   name:String
